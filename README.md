@@ -1,1 +1,1 @@
-# COV-19-Map
+# COVID-19-Map
