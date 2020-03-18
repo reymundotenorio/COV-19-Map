@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900&display=swap');
+
+$white: #ffffff;
+$black: #000000;
+$yellow: #FFC30F;
+$orange: #FF5733;
+$green: #0AD48B;
+$red: #C70039;
+
+#cov_19_map {
+  height: 80vh;
+  width: 70vw;
+  display: block;
+  margin: 0 auto;
+
+  .leaflet-popup-content-wrapper{
+    background-color: $black;
+    border-radius: 0px;
+    -webkit-box-shadow: 0px 0px 14px rgba($white, 0.4);
+    box-shadow: 0px 0px 14px rgba($white, 0.4);
+
+    .leaflet-popup-content{
+      margin: 10px 15px;
+
+      .detail-popup{
+        p{
+          color: $white;
+          font-size: 14px;
+          font-weight: 400;
+          font-family: 'Roboto', sans-serif;
+          margin: 0px;
+          margin-bottom: 5px;
+
+          span{
+            font-weight: 900;
+          }
+
+          &.place{
+            font-weight: 900;
+            margin-bottom: 15px;
+            // text-transform: uppercase;
+          }
+
+          &.lastUpdate{
+            text-align: right;
+            margin-top: 15px;
+
+            opacity: 0.8;
+          }
+
+          &.confirmed{
+            span{  color: $yellow; // Yellow
+            }
+          }
+
+          &.deaths{
+            span{  color: $red; // Orange
+            }
+          }
+
+          &.recovered{
+            span{  color: $green; // Green
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .leaflet-popup-tip-container{
+    .leaflet-popup-tip{
+      background-color: $black;
+      -webkit-box-shadow: 0px 0px 14px rgba($white, 0.4);
+      box-shadow: 0px 0px 14px rgba($white, 0.4);
+    }
+  }
+
+  a{
+    &.leaflet-popup-close-button{
+      font-family: 'Roboto', sans-serif;
+      color: $white;
+      opacity: 1;
+      -webkit-transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease;
+
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+  }
+}
