@@ -215,6 +215,42 @@ function addThemeToHighcharts(){
 
 function drawChart(){
   var chart = Highcharts.chart('covid19Chart', {
+    labels : {
+      items : [{
+        html : `Confirmados: ${formatNumber(confirmedSum[confirmedSum.length-1][1])}`,
+        style : {
+          left : '0px',
+          top : '5px',
+          color : '#256b6a',
+          fontWeight : '700',
+          textTransform: 'uppercase',
+          fontSize: '16px'
+        }
+      },
+      {
+        html : `Recuperados: ${formatNumber(recoveredSum[confirmedSum.length-1][1])}`,
+        style : {
+          left : '0px',
+          top : '25px',
+          color : '#6bad5f',
+          fontWeight : '700',
+          textTransform: 'uppercase',
+          fontSize: '16px'
+        }
+      },
+      {
+        html : `Muertos: ${formatNumber(deathsSum[confirmedSum.length-1][1])}`,
+        style : {
+          left : '0px',
+          top : '45px',
+          color : '#b14646',
+          fontWeight : '700',
+          textTransform: 'uppercase',
+          fontSize: '16px'
+        }
+      }]
+    },
+
     chart: {
       zoomType: 'x'
     },
@@ -236,7 +272,8 @@ function drawChart(){
     xAxis: {
       accessibility: {
         rangeDescription: `Del ${headerData[0]} al ${headerData[headerData.lenght]}`
-      }
+      },
+      type: 'datetime'
     },
 
     legend: {
@@ -284,6 +321,8 @@ function drawChart(){
       }
     ]
   });
+
+  charFullscreen();
 }
 
 function fillHeaderData(value){
@@ -302,7 +341,11 @@ function initRecoveredData(value){
   $.each(value, function(indexArr1, valueArr1) {
 
     if(indexArr1 > 3){
-      recoveredSum.push(parseInt(valueArr1));
+      var convertedDate = moment(headerData[indexArr1 - 4], "M/DD/YY").toDate().getTime();
+
+      recoveredSum.push([]);
+      recoveredSum[indexArr1 - 4][0] = convertedDate; // convertedDate
+      recoveredSum[indexArr1 - 4][1] = parseInt(valueArr1);
     }
 
   });
@@ -312,7 +355,7 @@ function sumRecoveredData(value){
   $.each(value, function(indexArrOthers, valueArrOthers) {
 
     if(indexArrOthers > 3){
-      recoveredSum[indexArrOthers - 4] = recoveredSum[indexArrOthers - 4] + parseInt(valueArrOthers);
+      recoveredSum[indexArrOthers - 4][1] = recoveredSum[indexArrOthers - 4][1] + parseInt(valueArrOthers);
     }
 
   });
@@ -356,7 +399,11 @@ function initDeathsData(value){
   $.each(value, function(indexArr1, valueArr1) {
 
     if(indexArr1 > 3){
-      deathsSum.push(parseInt(valueArr1));
+      var convertedDate = moment(headerData[indexArr1 - 4], "M/DD/YY").toDate().getTime();
+
+      deathsSum.push([]);
+      deathsSum[indexArr1 - 4][0] = convertedDate; // convertedDate
+      deathsSum[indexArr1 - 4][1] = parseInt(valueArr1);
     }
 
   });
@@ -366,7 +413,7 @@ function sumDeathsData(value){
   $.each(value, function(indexArrOthers, valueArrOthers) {
 
     if(indexArrOthers > 3){
-      deathsSum[indexArrOthers - 4] = deathsSum[indexArrOthers - 4] + parseInt(valueArrOthers);
+      deathsSum[indexArrOthers - 4][1] = deathsSum[indexArrOthers - 4][1] + parseInt(valueArrOthers);
     }
 
   });
@@ -407,20 +454,27 @@ function getDeathsData(){
 // CONFIRMED
 
 function initConfirmedData(value){
+
   $.each(value, function(indexArr1, valueArr1) {
 
     if(indexArr1 > 3){
-      confirmedSum.push(parseInt(valueArr1));
+      var convertedDate = moment(headerData[indexArr1 - 4], "M/DD/YY").toDate().getTime();
+
+      confirmedSum.push([]);
+      confirmedSum[indexArr1 - 4][0] = convertedDate; // convertedDate
+      confirmedSum[indexArr1 - 4][1] = parseInt(valueArr1);
     }
 
   });
+
+  // console.log(confirmedSum);
 }
 
 function sumConfirmedData(value){
   $.each(value, function(indexArrOthers, valueArrOthers) {
 
     if(indexArrOthers > 3){
-      confirmedSum[indexArrOthers - 4] = confirmedSum[indexArrOthers - 4] + parseInt(valueArrOthers);
+      confirmedSum[indexArrOthers - 4][1] = confirmedSum[indexArrOthers - 4][1] + parseInt(valueArrOthers);
     }
 
   });
@@ -449,10 +503,6 @@ function getConfirmedData(){
 
       }
     });
-
-
-    // console.log(headerData);
-    // console.log(confirmedSum);
 
     getDeathsData();
 

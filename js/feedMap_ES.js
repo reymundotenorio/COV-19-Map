@@ -16,6 +16,9 @@ var recoveredRate = 0;
 var covid19Map = '';
 var tile = '';
 
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
 
 function initMap(){
   covid19Map = L.map('covid19Map').setView([24, 1], 3);
@@ -44,10 +47,6 @@ function resetData() {
   deaths = '';
   recovered = '';
   place = '';
-}
-
-function formatNumber(num) {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 function drawInfection(state, country, lastUpdate, confirmed, deaths, recovered, lat, long){
