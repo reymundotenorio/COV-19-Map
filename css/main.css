@@ -1,20 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,900&display=swap");
-#cov_19_map {
-  height: 80vh;
-  width: 70vw;
+.main {
+  position: relative;
+}
+.main #covid19Map {
+  height: 100vh;
+  width: 100vw;
   display: block;
   margin: 0 auto;
 }
-#cov_19_map .leaflet-popup-content-wrapper {
+.main #covid19Map .leaflet-popup-content-wrapper {
   background-color: #000000;
   border-radius: 0px;
   -webkit-box-shadow: 0px 0px 14px rgba(255, 255, 255, 0.4);
   box-shadow: 0px 0px 14px rgba(255, 255, 255, 0.4);
 }
-#cov_19_map .leaflet-popup-content-wrapper .leaflet-popup-content {
+.main #covid19Map .leaflet-popup-content-wrapper .leaflet-popup-content {
   margin: 10px 15px;
 }
-#cov_19_map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p {
+.main #covid19Map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p {
   color: #ffffff;
   font-size: 14px;
   font-weight: 400;
@@ -22,39 +25,53 @@
   margin: 0px;
   margin-bottom: 5px;
 }
-#cov_19_map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p span {
+.main #covid19Map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p span {
   font-weight: 900;
 }
-#cov_19_map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.place {
+.main #covid19Map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.place {
   font-weight: 900;
   margin-bottom: 15px;
 }
-#cov_19_map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.lastUpdate {
+.main #covid19Map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.lastUpdate {
   text-align: right;
   margin-top: 15px;
   opacity: 0.8;
 }
-#cov_19_map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.confirmed span {
+.main #covid19Map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.confirmed span {
   color: #FFC30F;
 }
-#cov_19_map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.deaths span {
+.main #covid19Map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.deaths span {
   color: #C70039;
 }
-#cov_19_map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.recovered span {
+.main #covid19Map .leaflet-popup-content-wrapper .leaflet-popup-content .detail-popup p.recovered span {
   color: #0AD48B;
 }
-#cov_19_map .leaflet-popup-tip-container .leaflet-popup-tip {
+.main #covid19Map .leaflet-popup-tip-container .leaflet-popup-tip {
   background-color: #000000;
   -webkit-box-shadow: 0px 0px 14px rgba(255, 255, 255, 0.4);
   box-shadow: 0px 0px 14px rgba(255, 255, 255, 0.4);
 }
-#cov_19_map a.leaflet-popup-close-button {
+.main #covid19Map a.leaflet-popup-close-button {
   font-family: "Roboto", sans-serif;
   color: #ffffff;
   opacity: 1;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
-#cov_19_map a.leaflet-popup-close-button:hover {
+.main #covid19Map a.leaflet-popup-close-button:hover {
   opacity: 0.8;
+}
+.main #covid19Chart {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 50%;
+  height: 25vh;
+  z-index: 1000;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.main #covid19Chart:hover {
+  opacity: 1;
 }
