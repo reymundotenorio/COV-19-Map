@@ -83,7 +83,7 @@ function drawInfection(state, country, lastUpdate, confirmed, deaths, recovered,
     <p class="deaths">Muertes: <span>${formatNumber(deaths)} (${deathsRate.toFixed(2)}%)</span></p>
     <p class="recovered">Recuperados: <span>${formatNumber(recovered)} (${recoveredRate.toFixed(2)}%)</span></p>
 
-    <p class="lastUpdate">${moment(lastUpdate).format("MMMM do, YYYY - HH:mm")}</p>
+    <p class="lastUpdate">${moment(lastUpdate).locale('es').format('MMMM do, YYYY - HH:mm')}</p>
     </div>`
   );
 
