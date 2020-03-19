@@ -220,11 +220,11 @@ function drawChart(){
     },
 
     title: {
-      text: 'Global cases of COVID-19'
+      text: 'Casos globales del COVID-19'
     },
 
     // subtitle: {
-    //   text: 'Source: Johns Hopkins CSSE'
+    //   text: 'Fuente: Johns Hopkins CSSE'
     // },
 
     yAxis: {
@@ -235,7 +235,7 @@ function drawChart(){
 
     xAxis: {
       accessibility: {
-        rangeDescription: `From ${headerData[0]} to ${headerData[headerData.lenght]}`
+        rangeDescription: `Del ${headerData[0]} al ${headerData[headerData.lenght]}`
       }
     },
 
@@ -271,15 +271,15 @@ function drawChart(){
 
     series: [
       {
-        name: 'Confirmed',
+        name: 'Confirmados',
         data: confirmedSum
       },
       {
-        name: 'Recovered',
+        name: 'Recuperados',
         data: recoveredSum
       },
       {
-        name: 'Deaths',
+        name: 'Muertes',
         data: deathsSum
       }
     ]

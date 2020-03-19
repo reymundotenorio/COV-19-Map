@@ -22,10 +22,10 @@ function initMap(){
 
   tile = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution:
-    'COV-19 Map created by <a href="https://github.com/reymundotenorio" target="_blank">Reymundo Tenorio</a>, ' +
-    'Data Repository by <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins CSSE</a>, ' +
-    'Map data &copy; <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, ' +
-    '<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>, Imagery © ' +
+    'COV-19 Map creado por <a href="https://github.com/reymundotenorio" target="_blank">Reymundo Tenorio</a>, ' +
+    'Repositorio de datos por <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins CSSE</a>, ' +
+    'Datos del mapa Contribuyentes &copy; <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, ' +
+    '<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>, Imágenes © ' +
     '<a href="https://www.mapbox.com/" target="_blank">Mapbox</a>',
     id: 'mapbox/dark-v10',
     maxZoom: 18,
@@ -79,9 +79,9 @@ function drawInfection(state, country, lastUpdate, confirmed, deaths, recovered,
     `<div class="detail-popup">
     <p class="place">${place}</p>
 
-    <p class="confirmed">Confirmed: <span>${formatNumber(confirmed)}</span></p>
-    <p class="deaths">Deaths: <span>${formatNumber(deaths)} (${deathsRate.toFixed(2)}%)</span></p>
-    <p class="recovered">Recovered: <span>${formatNumber(recovered)} (${recoveredRate.toFixed(2)}%)</span></p>
+    <p class="confirmed">Confirmados: <span>${formatNumber(confirmed)}</span></p>
+    <p class="deaths">Muertes: <span>${formatNumber(deaths)} (${deathsRate.toFixed(2)}%)</span></p>
+    <p class="recovered">Recuperados: <span>${formatNumber(recovered)} (${recoveredRate.toFixed(2)}%)</span></p>
 
     <p class="lastUpdate">${moment(lastUpdate).format("MMMM do, YYYY - HH:mm")}</p>
     </div>`

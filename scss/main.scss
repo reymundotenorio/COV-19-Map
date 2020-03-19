@@ -7,12 +7,14 @@ $orange: #FF5733;
 $green: #0AD48B;
 $red: #C70039;
 
-
 .main {
   position: relative;
+  background-color: $black;
+  height: 100vh;
+  width: 100vw;
 
   #covid19Map {
-    height: 100vh; // 80vh;
+    height: 70vh; // 100vh;
     width: 100vw; // 70vw;
     display: block;
     margin: 0 auto;
@@ -92,6 +94,15 @@ $red: #C70039;
         }
       }
     }
+
+     .leaflet-control-attribution{
+         background: rgba($black, 0.7);
+         color: $white;
+
+         a{
+           color: $yellow;
+         }
+     }
   }
 
   #covid19Chart {
@@ -99,8 +110,8 @@ $red: #C70039;
     bottom: 0px;
     left: 0px;
 
-    width: 50%;
-    height: 25vh;
+    width: 100%; // 50%
+    height: 30vh; // 25vh;
 
     z-index: 1000;
     opacity: 0.7;
@@ -109,6 +120,21 @@ $red: #C70039;
 
     &:hover{
       opacity: 1;
+    }
+  }
+}
+
+@media(min-width: 768px){
+  .main {
+    position: relative;
+
+    #covid19Map {
+      height: 100vh; // 80vh;
+    }
+
+    #covid19Chart {
+      width: 50%;
+      height: 25vh;
     }
   }
 }
