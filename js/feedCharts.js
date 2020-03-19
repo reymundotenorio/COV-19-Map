@@ -220,7 +220,7 @@ function drawChart(){
     },
 
     title: {
-      text: 'Global cases of COVID-19'
+      text: 'Global cases COVID-19'
     },
 
     // subtitle: {
