@@ -8,6 +8,10 @@ var confirmedArr = [];
 var deathsArr = [];
 var recoveredArr = [];
 
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+}
+
 function addThemeToHighcharts(){
   Highcharts.createElement('link', {
     href: 'https://fonts.googleapis.com/css?family=Roboto',
@@ -213,7 +217,7 @@ function addThemeToHighcharts(){
   Highcharts.setOptions(Highcharts.theme);
 }
 
-function drawChart(){
+function drawChart(){  
   var chart = Highcharts.chart('covid19Chart', {
     labels : {
       items : [{

@@ -109,15 +109,15 @@ $(document).ready(function() {
 
     $.each(virusData, function(index, value) {
       if (index != 0){
-        // Assign data
-        state = value[0];
-        country = value[1];
-        lastUpdate = value[2];
-        confirmed = value[3];
-        deaths = value[4];
-        recovered = value[5];
-        lat = value[6];
-        long = value[7];
+         // Assign data
+         state = value[2];
+         country = value[3];
+         lastUpdate = value[4];
+         lat = value[5];
+         long = value[6];
+         confirmed = value[7];
+         deaths = value[8];
+         recovered = value[9];
 
         // console.log(lastUpdate);
 
